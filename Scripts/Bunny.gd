@@ -9,16 +9,16 @@ const JUMP_SPEED = 2.5
 
 func _physics_process(delta):
 	apply_gravity(delta)
-	jump(delta)
-	move(delta)
+	jump()
+	move()
 	animate()
 	move_and_slide(motion*SPEED, UP)
 
-func jump(delta):
+func jump():
 	if Input.is_action_pressed("jump") and is_on_floor():
 		motion.y -= JUMP_SPEED
 	
-func move(delta):
+func move():
 	motion.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 
 func apply_gravity(delta):
